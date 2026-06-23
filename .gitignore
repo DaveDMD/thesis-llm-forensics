@@ -1,0 +1,16 @@
+# Large, regenerable assets — never shipped
+data/
+models/
+
+# Runtime / regen scratch
+results/forensic_report/
+*.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Secrets / local env
+.env

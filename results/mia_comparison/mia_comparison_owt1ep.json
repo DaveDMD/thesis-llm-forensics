@@ -1,0 +1,64 @@
+{
+  "status": "ok",
+  "label": "owt1ep",
+  "checkpoint": "/workspace/models/finetuned/607022bd-5f26-4b33-bbb4-e17215a883be",
+  "epochs": 1,
+  "reference_model": "gpt2-medium@main",
+  "fpr": 0.1,
+  "methods": {
+    "loss": {
+      "auc": 0.9506,
+      "members_confirmed_at_fpr": 876,
+      "members": 1000,
+      "non_members": 1000
+    },
+    "min_k": {
+      "auc": 0.9393,
+      "members_confirmed_at_fpr": 834,
+      "members": 1000,
+      "non_members": 1000
+    },
+    "min_k_pp": {
+      "auc": 0.8674,
+      "members_confirmed_at_fpr": 591,
+      "members": 1000,
+      "non_members": 1000
+    },
+    "zlib": {
+      "auc": 0.8431,
+      "members_confirmed_at_fpr": 637,
+      "members": 1000,
+      "non_members": 1000
+    },
+    "ref": {
+      "auc": 0.9804,
+      "members_confirmed_at_fpr": 966,
+      "members": 1000,
+      "non_members": 1000
+    }
+  },
+  "white_box": {
+    "available_methods": [
+      "loss",
+      "min_k",
+      "min_k_pp",
+      "zlib",
+      "ref"
+    ],
+    "best_method": "ref",
+    "best_auc": 0.9804,
+    "note": "attacker has the weights -> exact per-token loss; all methods incl. reference-calibrated"
+  },
+  "black_box": {
+    "available_methods_E0": [
+      "loss",
+      "min_k",
+      "min_k_pp",
+      "zlib"
+    ],
+    "best_method_E0": "loss",
+    "best_auc_E0": 0.9506,
+    "E1_feasible": false,
+    "note": "API-only: logprob-derived scores only (no reference model). Feasible only while the score channel is open (E0); E1 suppresses logprobs (952->0 events) -> MIA infeasible (AUC->chance). black-box best <= white-box best (no calibration)."
+  }
+}

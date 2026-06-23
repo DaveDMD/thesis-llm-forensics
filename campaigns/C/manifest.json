@@ -1,0 +1,33 @@
+{
+  "campaign": "C",
+  "title": "Pythia-2.8b / The Pile (pre-training regime, MIMIR)",
+  "model": "EleutherAI/pythia-2.8b@step99000",
+  "reference_model": "EleutherAI/pythia-160m",
+  "dataset": "MIMIR curated, github split mimir-ngram_13_0.8 (Duan et al. 2024)",
+  "regime": "pre-training, NO fine-tune — natural memorization via Pile duplication",
+  "detectors": ["results/detectors/v1.joblib", "results/detectors/v2.joblib", "results/detectors/v3.joblib", "v4 built at runtime from v3"],
+  "replay_streams": {
+    "E0": "evidence/targetC_pile/E0_95bd646d-5f3e-4c40-8355-17c97e21936f.jsonl",
+    "E1": "evidence/targetC_pile/E1_1c119ee6-3d88-461e-876e-e485f8a0600b.jsonl"
+  },
+  "expected": {
+    "detector_metrics": "results/b7_metrics/targetC.json",
+    "battery": [
+      "results/targetC_pile/targetC_battery_E0.json",
+      "results/targetC_pile/targetC_battery_E1.json"
+    ]
+  },
+  "headline_metrics": {
+    "mia_whitebox_auc": {"zlib": 0.737, "min_k": 0.725, "loss": 0.720, "min_k_pp": 0.712, "ref": 0.474},
+    "mia_caveat": "MIMIR/arXiv:2402.07841 — on pre-training MIA is ~chance in most settings; github n-gram regularity can inflate it (report with split + confound).",
+    "extraction_secrets_out_of_144": {
+      "E0": {"prefix": 47, "sampling": 86, "adaptive": 71},
+      "E1": "0 on every family (redaction); 57% of requests blocked by rate-limit"
+    },
+    "detector_best": {
+      "online_E0_auc": {"v4": 0.995, "v2": 0.989, "v3": 0.989},
+      "online_E1": {"v4": "0.917 @ FA 0.032 (dominates)"},
+      "online_beats_posthoc": true
+    }
+  }
+}

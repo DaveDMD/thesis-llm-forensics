@@ -1,0 +1,20 @@
+{
+  "demo": "forensic-investigation",
+  "title": "Forensic chain — timeline, attribution, IR playbook, chain of custody",
+  "nature": "cross-cutting, model-agnostic system capability (not a per-target result)",
+  "scenario": "realistic multi-actor incident: one adversary across two extraction sessions (same actor identity) + a second adversary (divergence) + benign traffic from distinct legitimate users",
+  "model_incidental": "EleutherAI/pythia-1.4b@step99000 — the chain reads request metadata + log structure, not model outputs, so the model is incidental",
+  "replay_stream": "evidence/investigation/1ac0d02e-05ba-46d3-89ef-8f32d8f5c1dd.jsonl",
+  "committed_report": "results/investigation/1ac0d02e-05ba-46d3-89ef-8f32d8f5c1dd_investigation.json",
+  "headline": {
+    "sessions": 10,
+    "timeline_phases": {"extraction_attempt": 2},
+    "attribution_links": 1,
+    "attribution_example": "the adversary's two sessions are linked (shared ip/asn/user-agent hash + temporal proximity, conf 0.90); benign sessions are not linked",
+    "triage_severity": "high (2 suspicious sessions)",
+    "escalation": "escalate to incident lead; preserve snapshot; consider GDPR breach assessment",
+    "chain_verified": true,
+    "records": 172
+  },
+  "why_once": "The forensic chain is model-agnostic: staged against gpt2, Pythia or Mistral it yields the same result, because it operates on who sends the requests and how, not on what the model generates. It is therefore demonstrated once. Per campaign, only the no-GPU custody verification is run."
+}

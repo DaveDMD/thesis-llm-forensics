@@ -1,0 +1,228 @@
+{
+  "run_id": "c5b11b42-a664-4d11-bc1a-48465e32c96c",
+  "model": "EleutherAI/pythia-2.8b",
+  "revision": "step99000",
+  "domain": "github",
+  "n_requests": 57,
+  "timeline": {
+    "080bbc00fc8698fb3cdee05cfa7891a7337f0fc005004b887455ffe7fb0f71c9": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "25bbf5aad7fce72c0ba9ed0ead719ea7093d7c7146e40c343b65c1f1ef2f53fb": {
+      "n_events": 3,
+      "phases_observed": [],
+      "duration_seconds": 2.446451,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "2af70796354cf4db15c516a80b3245fa5ce701ad09bb4690197a44b37121e65e": {
+      "n_events": 20,
+      "phases_observed": [
+        "extraction_attempt"
+      ],
+      "duration_seconds": 62.574177,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 16
+    },
+    "5d935ba0fa1461573c4737f22e6dc1a4bccb0cd19dd1df645bc91d74b6c6b0d9": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "5f8d3847878f82cac8659000543c9f293b613f29f488b841e5336095e2266cd5": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "7fede7326b1cf5cf728db7cc68986f9d75eb63cb334ea426f2a0b6ef548f9bb3": {
+      "n_events": 20,
+      "phases_observed": [
+        "extraction_attempt"
+      ],
+      "duration_seconds": 93.121018,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 16
+    },
+    "d9e9f82d7dd40c56c289e4785e1fc260d153e9f79c36af253b2872312832fc41": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "e2c8682d84638cd85822f00df45c79bd8ddf9adbbcd0c9e61879adfade5723da": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "ee1f4e3de024afa0bd5bbc7c1aaf4f7e8d76c9b5fb234bbe2f53aac72a52ecd9": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "ffa127ed3d683cea0bf30b254ae2d80fc71e93ad58737e04437cb19350770376": {
+      "n_events": 8,
+      "phases_observed": [],
+      "duration_seconds": 58.438455,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    }
+  },
+  "multi_phase_sessions": [],
+  "attribution_links": [
+    {
+      "session_a": "2af70796354cf4db15c516a80b3245fa5ce701ad09bb4690197a44b37121e65e",
+      "session_b": "7fede7326b1cf5cf728db7cc68986f9d75eb63cb334ea426f2a0b6ef548f9bb3",
+      "confidence": 0.9,
+      "signals": [
+        "shared_asn_hash",
+        "shared_ip_hash",
+        "shared_user_agent_hash",
+        "temporal_proximity"
+      ],
+      "note": "prudential correlation heuristic; not identity attribution"
+    }
+  ],
+  "ir_report": {
+    "generated_at_utc": "2026-06-12T14:17:50.535709+00:00",
+    "log_path": "/workspace/evidence/investigation/c5b11b42-a664-4d11-bc1a-48465e32c96c.jsonl",
+    "triage": {
+      "n_sessions": 10,
+      "suspicious_sessions": [
+        "2af70796354cf4db15c516a80b3245fa5ce701ad09bb4690197a44b37121e65e",
+        "7fede7326b1cf5cf728db7cc68986f9d75eb63cb334ea426f2a0b6ef548f9bb3"
+      ],
+      "recon_only_sessions": [],
+      "multi_phase_sessions": [],
+      "n_attribution_links": 1,
+      "attribution_links": [
+        {
+          "session_a": "2af70796354cf4db15c516a80b3245fa5ce701ad09bb4690197a44b37121e65e",
+          "session_b": "7fede7326b1cf5cf728db7cc68986f9d75eb63cb334ea426f2a0b6ef548f9bb3",
+          "confidence": 0.9,
+          "signals": [
+            "shared_asn_hash",
+            "shared_ip_hash",
+            "shared_user_agent_hash",
+            "temporal_proximity"
+          ],
+          "note": "prudential correlation heuristic; not identity attribution"
+        }
+      ],
+      "severity": "high",
+      "phase_summary": {
+        "extraction_attempt": 32
+      }
+    },
+    "snapshot": {
+      "components": {
+        "logs:forensic_stream": {
+          "path": "/workspace/evidence/investigation/c5b11b42-a664-4d11-bc1a-48465e32c96c.jsonl",
+          "present": true,
+          "sha256": "8ce16c9f25c76d9f9289f13514ea23d6326c8c3c6b137a80e2b44a990b566dc6",
+          "size_bytes": 220735
+        },
+        "model:config.json": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-2.8b/snapshots/68172d2242cd5430e8210ecbafed7cc0425f16a2/config.json",
+          "present": true,
+          "sha256": "fe1a9b9550935517588c98f89df24db7d7eadf4c4a00dd32e127a2d4585e9827",
+          "size_bytes": 571
+        },
+        "model:tokenizer.json": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-2.8b/snapshots/68172d2242cd5430e8210ecbafed7cc0425f16a2/tokenizer.json",
+          "present": true,
+          "sha256": "c24618a1b3e6a38167beff1c72cffd126c3a66254347304b50547d12c5f25624",
+          "size_bytes": 2113710
+        },
+        "model:tokenizer_config.json": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-2.8b/snapshots/68172d2242cd5430e8210ecbafed7cc0425f16a2/tokenizer_config.json",
+          "present": true,
+          "sha256": "70e38394e494931c6f773ba41e19460dd4436526b852207367f04341b4066d3f",
+          "size_bytes": 396
+        },
+        "model:model.safetensors": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-2.8b/snapshots/68172d2242cd5430e8210ecbafed7cc0425f16a2/model.safetensors",
+          "present": true,
+          "sha256": "a310ce487ae8d8c0ba1b3eb242c1c755c7875215d006f0fafa05bbb7dcf3e929",
+          "size_bytes": 5550463755
+        },
+        "model:pytorch_model.bin": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-2.8b/snapshots/68172d2242cd5430e8210ecbafed7cc0425f16a2/pytorch_model.bin",
+          "present": true,
+          "sha256": "91e656eb9b21125d8d73e79ce22d8f4c419f6a9462250209aaf24156da5f7bc7",
+          "size_bytes": 5550545787
+        },
+        "index:mimir_github": {
+          "path": "/workspace/models/hf-cache/datasets/iamgroot42___mimir/github/0.0.0/99dd53483f73e1949849b6202ab5c394203fb920504c1307e17105565ac9e33b/mimir-ngram_13_0.8.arrow",
+          "present": true,
+          "sha256": "f10da6af496cf495092ccb64dbb3b1e30d6dd34d8e52afd34d91697bfb1d5eb5",
+          "size_bytes": 78946912
+        }
+      },
+      "aggregate_digest": "294ee1d9dd563c7a36242f1889882f49b32086db0ae73f78c8eae9b808b73c8d"
+    },
+    "preservation": {
+      "chain_verified": true,
+      "total_records": 172,
+      "manifest_first": true,
+      "ots_sidecar_present": false,
+      "n_issues": 0,
+      "issues": []
+    },
+    "escalation_recommendation": "escalate to incident lead; preserve snapshot; consider GDPR breach assessment",
+    "report_note": "Technical IR evidence and report skeleton. Organisational steps (escalation chain, SLAs, external reporting duties) are defined in the thesis text. This tool performs no destructive action."
+  },
+  "chain_verified": true
+}

@@ -1,0 +1,37 @@
+{
+  "campaign": "A",
+  "title": "gpt2-medium / WikiText 12-epoch (heavy overfit)",
+  "checkpoint_id": "c630d00e",
+  "registry": "results/canary/c630d00e-9dda-4265-ad79-e5ae39189b40_registry.json",
+  "regime": "fine-tuning, deliberate overfit (small corpus, 12 epochs) — upper bound of memorization",
+  "detectors": ["results/detectors/v1.joblib", "results/detectors/v2.joblib"],
+  "replay_streams": {
+    "runtime": {
+      "E0": "evidence/runtime_gpt2/E0_1984562d-4d2e-45f7-a308-a63fe1a70d27.jsonl",
+      "E1": "evidence/runtime_gpt2/E1_edcf74b7-db5e-4b59-a7d3-d9ac9c8b3bb1.jsonl"
+    },
+    "note": "run_b7_reanalysis_targetA.py auto-locates A's streams by matching each record's model_id to registry c630d00e (the streams share evidence/runtime_gpt2 with TARGET B)."
+  },
+  "expected": {
+    "detector_metrics": "results/b7_metrics/targetA.json",
+    "mia_whitebox": "results/mia_comparison/mia_comparison_12ep.json",
+    "mia_blackbox": [
+      "results/mia_blackbox/mia_blackbox_c630d00e_E0.json",
+      "results/mia_blackbox/mia_blackbox_c630d00e_E1.json"
+    ],
+    "sampling": "results/sampling_canary/sampling_canary_summary.json",
+    "adaptive": [
+      "results/adaptive_canary/adaptive_canary_E0_summary.json",
+      "results/adaptive_canary/adaptive_canary_E1_summary.json"
+    ]
+  },
+  "headline_metrics": {
+    "mia_whitebox_auc": "all 1.0 (loss/min_k/min_k++/zlib/ref) — overfit upper bound",
+    "mia_blackbox_auc": {"E0": 1.0, "E1": "infeasible (logprob channel closed)"},
+    "extraction_secrets_out_of_144": {
+      "E0": {"prefix": "~12", "sampling": 53, "adaptive": 17, "union": "~70"},
+      "E1": "only PAN survives (8, out-of-catalogue formats: double blind-spot detector + redaction)"
+    },
+    "detector_best": {"frozen_only_pythia_ood_posthoc_auc": 0.667, "false_alarms": 0.0}
+  }
+}

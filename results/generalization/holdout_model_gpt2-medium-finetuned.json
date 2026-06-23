@@ -1,0 +1,68 @@
+{
+  "status": "ok",
+  "pool": "/workspace/results/residue_pool/sessions.jsonl",
+  "holdout": {
+    "key": "model",
+    "value": "gpt2-medium-finetuned"
+  },
+  "n_pool_sessions": 757,
+  "train": {
+    "n_sessions": 393,
+    "cells": [
+      [
+        "arxiv",
+        "EleutherAI/pythia-2.8b"
+      ],
+      [
+        "canary",
+        "pythia-410m-finetuned"
+      ],
+      [
+        "github",
+        "EleutherAI/pythia-1.4b"
+      ],
+      [
+        "github",
+        "EleutherAI/pythia-2.8b"
+      ]
+    ]
+  },
+  "in_distribution_test": {
+    "n_sessions": 168,
+    "metrics": {
+      "n_attack": 115,
+      "n_benign": 53,
+      "n_detected_attack": 112,
+      "detection_rate": 0.9739130434782609,
+      "false_alarm_rate": 0.07547169811320754,
+      "median_time_to_detection": null,
+      "min_time_to_detection": null,
+      "max_time_to_detection": null,
+      "cumulative_detected_by_request": {}
+    }
+  },
+  "ood_test": {
+    "n_sessions": 196,
+    "cells": [
+      [
+        "rich_canary",
+        "gpt2-medium-finetuned"
+      ]
+    ],
+    "metrics": {
+      "n_attack": 72,
+      "n_benign": 124,
+      "n_detected_attack": 48,
+      "detection_rate": 0.6666666666666666,
+      "false_alarm_rate": 0.0,
+      "median_time_to_detection": null,
+      "min_time_to_detection": null,
+      "max_time_to_detection": null,
+      "cumulative_detected_by_request": {}
+    }
+  },
+  "generalization_gap": {
+    "detection_rate_drop": 0.307,
+    "false_alarm_delta": -0.075
+  }
+}

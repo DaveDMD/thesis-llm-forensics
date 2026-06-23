@@ -1,0 +1,67 @@
+# Docker Compose — reproducible experimental environment.
+#
+# Service "thesis" runs on CPU and backs the no-GPU paths (--replay, --forensics), so it
+# works on any machine. Service "thesis-gpu" adds NVIDIA GPU passthrough and the extra data
+# mounts, and backs the --regen paths (real model runs). The HuggingFace token is read from the
+# shell environment (or an optional .env) only for --regen; the no-GPU paths need nothing.
+
+services:
+  thesis:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        MIMIR_COMMIT: ${MIMIR_COMMIT:-1b6fd649eeeecc887275a2336c7da808ee58757d}
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+    image: thesis-env:0.1.0
+    volumes:
+      - ./tools:/workspace/tools
+      - ./results:/workspace/results
+      - ./evidence:/workspace/evidence
+    environment:
+      - PYTHONPATH=/workspace/tools:/workspace/tools/forensic
+      - CONTAINER_IMAGE_ID=thesis-env:0.1.0
+      - HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN:-}
+      - HF_TOKEN=${HF_TOKEN:-}
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    ipc: host
+    shm_size: '2gb'
+
+  # GPU variant for the --regen paths. Requires an NVIDIA GPU + the NVIDIA Container Toolkit.
+  thesis-gpu:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+      args:
+        MIMIR_COMMIT: ${MIMIR_COMMIT:-1b6fd649eeeecc887275a2336c7da808ee58757d}
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+    image: thesis-env:0.1.0
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    volumes:
+      - ./tools:/workspace/tools
+      - ./results:/workspace/results
+      - ./evidence:/workspace/evidence
+      - ./models:/workspace/models
+      - ./data:/workspace/data
+      - ./logs:/workspace/logs
+      - ./groundtruth:/workspace/groundtruth
+    environment:
+      - PYTHONPATH=/workspace/tools:/workspace/tools/forensic
+      - CONTAINER_IMAGE_ID=thesis-env:0.1.0
+      - HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN:-}
+      - HF_TOKEN=${HF_TOKEN:-}
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    ipc: host
+    shm_size: '2gb'

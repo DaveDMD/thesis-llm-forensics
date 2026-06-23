@@ -1,0 +1,29 @@
+{
+  "status": "ok",
+  "environment": "E0",
+  "checkpoint": "/workspace/models/finetuned/607022bd-5f26-4b33-bbb4-e17215a883be",
+  "attacker": "black_box_api",
+  "channel": "echo_logprobs",
+  "docs_total": 2000,
+  "docs_with_logprobs": 2000,
+  "docs_blocked": 0,
+  "feasible": true,
+  "methods": {
+    "loss": {
+      "auc": 0.9506,
+      "members_confirmed_at_fpr": 876,
+      "members": 1000
+    },
+    "min_k": {
+      "auc": 0.9393,
+      "members_confirmed_at_fpr": 834,
+      "members": 1000
+    },
+    "zlib": {
+      "auc": 0.8431,
+      "members_confirmed_at_fpr": 637,
+      "members": 1000
+    }
+  },
+  "note": "E0: API echoes prompt logprobs -> loss-family MIA feasible. E1: score channel closed -> no logprobs -> MIA INFEASIBLE (chance). ref/min_k_pp are white-box only (need a 2nd model / per-token stats)."
+}

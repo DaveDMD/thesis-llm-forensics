@@ -1,0 +1,60 @@
+{
+  "status": "ok",
+  "pool": "/workspace/results/residue_pool/sessions.jsonl",
+  "holdout": {
+    "key": "domain",
+    "value": "arxiv"
+  },
+  "n_pool_sessions": 483,
+  "train": {
+    "n_sessions": 226,
+    "cells": [
+      [
+        "github",
+        "EleutherAI/pythia-1.4b"
+      ],
+      [
+        "github",
+        "EleutherAI/pythia-2.8b"
+      ]
+    ]
+  },
+  "in_distribution_test": {
+    "n_sessions": 98,
+    "metrics": {
+      "n_attack": 74,
+      "n_benign": 24,
+      "n_detected_attack": 70,
+      "detection_rate": 0.9459459459459459,
+      "false_alarm_rate": 0.0,
+      "median_time_to_detection": null,
+      "min_time_to_detection": null,
+      "max_time_to_detection": null,
+      "cumulative_detected_by_request": {}
+    }
+  },
+  "ood_test": {
+    "n_sessions": 161,
+    "cells": [
+      [
+        "arxiv",
+        "EleutherAI/pythia-2.8b"
+      ]
+    ],
+    "metrics": {
+      "n_attack": 123,
+      "n_benign": 38,
+      "n_detected_attack": 120,
+      "detection_rate": 0.975609756097561,
+      "false_alarm_rate": 0.0,
+      "median_time_to_detection": null,
+      "min_time_to_detection": null,
+      "max_time_to_detection": null,
+      "cumulative_detected_by_request": {}
+    }
+  },
+  "generalization_gap": {
+    "detection_rate_drop": -0.03,
+    "false_alarm_delta": 0.0
+  }
+}

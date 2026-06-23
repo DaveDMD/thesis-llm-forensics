@@ -1,0 +1,234 @@
+{
+  "run_id": "1ac0d02e-05ba-46d3-89ef-8f32d8f5c1dd",
+  "model": "EleutherAI/pythia-1.4b",
+  "revision": "step99000",
+  "domain": "github",
+  "n_requests": 57,
+  "timeline": {
+    "080bbc00fc8698fb3cdee05cfa7891a7337f0fc005004b887455ffe7fb0f71c9": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "25bbf5aad7fce72c0ba9ed0ead719ea7093d7c7146e40c343b65c1f1ef2f53fb": {
+      "n_events": 3,
+      "phases_observed": [],
+      "duration_seconds": 1.010794,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "2af70796354cf4db15c516a80b3245fa5ce701ad09bb4690197a44b37121e65e": {
+      "n_events": 20,
+      "phases_observed": [
+        "extraction_attempt"
+      ],
+      "duration_seconds": 17.78021,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 15
+    },
+    "5d935ba0fa1461573c4737f22e6dc1a4bccb0cd19dd1df645bc91d74b6c6b0d9": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "5f8d3847878f82cac8659000543c9f293b613f29f488b841e5336095e2266cd5": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "7fede7326b1cf5cf728db7cc68986f9d75eb63cb334ea426f2a0b6ef548f9bb3": {
+      "n_events": 20,
+      "phases_observed": [
+        "extraction_attempt"
+      ],
+      "duration_seconds": 20.422665,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 17
+    },
+    "d9e9f82d7dd40c56c289e4785e1fc260d153e9f79c36af253b2872312832fc41": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "e2c8682d84638cd85822f00df45c79bd8ddf9adbbcd0c9e61879adfade5723da": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "ee1f4e3de024afa0bd5bbc7c1aaf4f7e8d76c9b5fb234bbe2f53aac72a52ecd9": {
+      "n_events": 1,
+      "phases_observed": [],
+      "duration_seconds": null,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    },
+    "ffa127ed3d683cea0bf30b254ae2d80fc71e93ad58737e04437cb19350770376": {
+      "n_events": 8,
+      "phases_observed": [],
+      "duration_seconds": 12.925039,
+      "actor_consistent": {
+        "ip_hash": true,
+        "user_agent_hash": true,
+        "asn_hash": true
+      },
+      "n_extraction_events": 0
+    }
+  },
+  "multi_phase_sessions": [],
+  "attribution_links": [
+    {
+      "session_a": "2af70796354cf4db15c516a80b3245fa5ce701ad09bb4690197a44b37121e65e",
+      "session_b": "7fede7326b1cf5cf728db7cc68986f9d75eb63cb334ea426f2a0b6ef548f9bb3",
+      "confidence": 0.9,
+      "signals": [
+        "shared_asn_hash",
+        "shared_ip_hash",
+        "shared_user_agent_hash",
+        "temporal_proximity"
+      ],
+      "note": "prudential correlation heuristic; not identity attribution"
+    }
+  ],
+  "ir_report": {
+    "generated_at_utc": "2026-06-12T14:01:06.487029+00:00",
+    "log_path": "/workspace/evidence/investigation/1ac0d02e-05ba-46d3-89ef-8f32d8f5c1dd.jsonl",
+    "triage": {
+      "n_sessions": 10,
+      "suspicious_sessions": [
+        "2af70796354cf4db15c516a80b3245fa5ce701ad09bb4690197a44b37121e65e",
+        "7fede7326b1cf5cf728db7cc68986f9d75eb63cb334ea426f2a0b6ef548f9bb3"
+      ],
+      "recon_only_sessions": [],
+      "multi_phase_sessions": [],
+      "n_attribution_links": 1,
+      "attribution_links": [
+        {
+          "session_a": "2af70796354cf4db15c516a80b3245fa5ce701ad09bb4690197a44b37121e65e",
+          "session_b": "7fede7326b1cf5cf728db7cc68986f9d75eb63cb334ea426f2a0b6ef548f9bb3",
+          "confidence": 0.9,
+          "signals": [
+            "shared_asn_hash",
+            "shared_ip_hash",
+            "shared_user_agent_hash",
+            "temporal_proximity"
+          ],
+          "note": "prudential correlation heuristic; not identity attribution"
+        }
+      ],
+      "severity": "high",
+      "phase_summary": {
+        "extraction_attempt": 32
+      }
+    },
+    "snapshot": {
+      "components": {
+        "logs:forensic_stream": {
+          "path": "/workspace/evidence/investigation/1ac0d02e-05ba-46d3-89ef-8f32d8f5c1dd.jsonl",
+          "present": true,
+          "sha256": "518f48592ab2d35201d99b5fc3f158425a0b991ab6c88dac390636e507f016d3",
+          "size_bytes": 220717
+        },
+        "model:config.json": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-1.4b/snapshots/f307dffa7a87cbe3b968a7859050ffc4d757ab7e/config.json",
+          "present": true,
+          "sha256": "6ea552aa42b7437f019ccdd30b7c9b83a32dccb5170ce31b9ddbe94d00f4671c",
+          "size_bytes": 570
+        },
+        "model:tokenizer.json": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-1.4b/snapshots/f307dffa7a87cbe3b968a7859050ffc4d757ab7e/tokenizer.json",
+          "present": true,
+          "sha256": "c24618a1b3e6a38167beff1c72cffd126c3a66254347304b50547d12c5f25624",
+          "size_bytes": 2113710
+        },
+        "model:tokenizer_config.json": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-1.4b/snapshots/f307dffa7a87cbe3b968a7859050ffc4d757ab7e/tokenizer_config.json",
+          "present": true,
+          "sha256": "70e38394e494931c6f773ba41e19460dd4436526b852207367f04341b4066d3f",
+          "size_bytes": 396
+        },
+        "model:model-00001-of-00002.safetensors": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-1.4b/snapshots/f307dffa7a87cbe3b968a7859050ffc4d757ab7e/model-00001-of-00002.safetensors",
+          "present": true,
+          "sha256": "1c8a528d00bcde365f6d6a13451eafa9b94d90327a26804205169c4ce775139b",
+          "size_bytes": 4987196512
+        },
+        "model:model-00002-of-00002.safetensors": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-1.4b/snapshots/f307dffa7a87cbe3b968a7859050ffc4d757ab7e/model-00002-of-00002.safetensors",
+          "present": true,
+          "sha256": "72c7fccb40a9838542d85a25839465f060da6a14ec735d94976404c6d322a247",
+          "size_bytes": 671429088
+        },
+        "model:pytorch_model.bin": {
+          "path": "/workspace/data/mimir-cache/models--EleutherAI--pythia-1.4b/snapshots/f307dffa7a87cbe3b968a7859050ffc4d757ab7e/pytorch_model.bin",
+          "present": true,
+          "sha256": "04f2ba9851919816a2255d54c1f7c3a4b79ba0adf74255120396107693e0b345",
+          "size_bytes": 2930076797
+        },
+        "index:mimir_github": {
+          "path": "/workspace/models/hf-cache/datasets/iamgroot42___mimir/github/0.0.0/99dd53483f73e1949849b6202ab5c394203fb920504c1307e17105565ac9e33b/mimir-ngram_13_0.8.arrow",
+          "present": true,
+          "sha256": "f10da6af496cf495092ccb64dbb3b1e30d6dd34d8e52afd34d91697bfb1d5eb5",
+          "size_bytes": 78946912
+        }
+      },
+      "aggregate_digest": "d45379a50d957975a830d6c7e1a2271d1eaed7edb286b7091227139c9c2bad4b"
+    },
+    "preservation": {
+      "chain_verified": true,
+      "total_records": 172,
+      "manifest_first": true,
+      "ots_sidecar_present": false,
+      "n_issues": 0,
+      "issues": []
+    },
+    "escalation_recommendation": "escalate to incident lead; preserve snapshot; consider GDPR breach assessment",
+    "report_note": "Technical IR evidence and report skeleton. Organisational steps (escalation chain, SLAs, external reporting duties) are defined in the thesis text. This tool performs no destructive action."
+  },
+  "chain_verified": true
+}

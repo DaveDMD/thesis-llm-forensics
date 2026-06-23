@@ -1,0 +1,275 @@
+{
+  "status": "ok",
+  "target": "EleutherAI/pythia-2.8b@step99000",
+  "domain": "github",
+  "regime": "pretraining",
+  "smoke": false,
+  "mia": {
+    "white_box": {
+      "methods": {
+        "loss": {
+          "auc": 0.7204,
+          "confirmed_at_fpr10": 138,
+          "members": 300
+        },
+        "min_k": {
+          "auc": 0.7249,
+          "confirmed_at_fpr10": 140,
+          "members": 300
+        },
+        "min_k_pp": {
+          "auc": 0.712,
+          "confirmed_at_fpr10": 123,
+          "members": 300
+        },
+        "zlib": {
+          "auc": 0.7366,
+          "confirmed_at_fpr10": 140,
+          "members": 300
+        },
+        "ref": {
+          "auc": 0.4737,
+          "confirmed_at_fpr10": 48,
+          "members": 300
+        }
+      },
+      "best": "zlib",
+      "best_auc": 0.7366
+    },
+    "black_box": {
+      "E0_best": "zlib",
+      "E0_best_auc": 0.7366,
+      "E1_feasible": false,
+      "note": "WB = on weights, env-independent. BB E0 = uncalibrated echo (<=WB). BB E1 infeasible (score channel closed)."
+    }
+  },
+  "v_provenance": {
+    "v1": {
+      "instance": "v1",
+      "description": "frozen Passata-1 detector (pool excluding the gpt2 cell)",
+      "secret_recogniser": "v1_regex",
+      "n_train_sessions": 561,
+      "n_attack": 385,
+      "train_cells": {
+        "github/EleutherAI/pythia-2.8b": 161,
+        "arxiv/EleutherAI/pythia-2.8b": 161,
+        "github/EleutherAI/pythia-1.4b": 161,
+        "canary/pythia-410m-finetuned": 78
+      },
+      "includes_gpt2_cell": false
+    },
+    "v2": {
+      "instance": "v2",
+      "description": "specialised detector (pool including gpt2 residues)",
+      "secret_recogniser": "v2_extended_PAN_CONF",
+      "n_train_sessions": 757,
+      "n_attack": 457,
+      "train_cells": {
+        "github/EleutherAI/pythia-2.8b": 161,
+        "arxiv/EleutherAI/pythia-2.8b": 161,
+        "github/EleutherAI/pythia-1.4b": 161,
+        "canary/pythia-410m-finetuned": 78,
+        "rich_canary/gpt2-medium-finetuned": 196
+      },
+      "includes_gpt2_cell": true
+    },
+    "v3": {
+      "instance": "v3",
+      "description": "within-target specialised (pool incl. TARGET-B)",
+      "secret_recogniser": "v2_extended_PAN_CONF",
+      "n_train_sessions": 1065,
+      "n_gpt2_cell_sessions": 504,
+      "includes_targetB": true
+    }
+  },
+  "by_environment": {
+    "E1": {
+      "env": "E1",
+      "run_id": "1c119ee6-3d88-461e-876e-e485f8a0600b",
+      "n_sessions": 422,
+      "attack_outcomes": {
+        "extraction_prefix": {
+          "member": "0/144",
+          "nonmember": "0/0",
+          "secrets_extracted": 0
+        },
+        "sampling": {
+          "secrets": "0/144"
+        },
+        "adaptive": {
+          "secrets": "0/144"
+        }
+      },
+      "detectors": {
+        "v1": {
+          "online": {
+            "n_attack": 360,
+            "n_benign": 62,
+            "n_detected_attack": 254,
+            "detection_rate": 0.7055555555555556,
+            "false_alarm_rate": 0.0967741935483871,
+            "median_time_to_detection": 1.0,
+            "min_time_to_detection": 1,
+            "max_time_to_detection": 19,
+            "cumulative_detected_by_request": {
+              "1": 128,
+              "2": 152,
+              "3": 164,
+              "4": 171,
+              "5": 175,
+              "6": 176,
+              "7": 179,
+              "15": 180,
+              "16": 184,
+              "17": 221,
+              "18": 249,
+              "19": 254
+            }
+          },
+          "posthoc": {
+            "n_attack": 360,
+            "n_benign": 62,
+            "n_detected_attack": 219,
+            "detection_rate": 0.6083333333333333,
+            "false_alarm_rate": 0.0967741935483871,
+            "median_time_to_detection": null,
+            "min_time_to_detection": null,
+            "max_time_to_detection": null,
+            "cumulative_detected_by_request": {}
+          }
+        },
+        "v2": {
+          "online": {
+            "n_attack": 360,
+            "n_benign": 62,
+            "n_detected_attack": 326,
+            "detection_rate": 0.9055555555555556,
+            "false_alarm_rate": 0.0967741935483871,
+            "median_time_to_detection": 1.0,
+            "min_time_to_detection": 1,
+            "max_time_to_detection": 19,
+            "cumulative_detected_by_request": {
+              "1": 230,
+              "2": 239,
+              "3": 250,
+              "8": 251,
+              "17": 265,
+              "18": 323,
+              "19": 326
+            }
+          },
+          "posthoc": {
+            "n_attack": 360,
+            "n_benign": 62,
+            "n_detected_attack": 290,
+            "detection_rate": 0.8055555555555556,
+            "false_alarm_rate": 0.0967741935483871,
+            "median_time_to_detection": null,
+            "min_time_to_detection": null,
+            "max_time_to_detection": null,
+            "cumulative_detected_by_request": {}
+          }
+        },
+        "v3": {
+          "online": {
+            "n_attack": 360,
+            "n_benign": 62,
+            "n_detected_attack": 295,
+            "detection_rate": 0.8194444444444444,
+            "false_alarm_rate": 0.03225806451612903,
+            "median_time_to_detection": 1,
+            "min_time_to_detection": 1,
+            "max_time_to_detection": 20,
+            "cumulative_detected_by_request": {
+              "1": 228,
+              "2": 236,
+              "3": 242,
+              "4": 243,
+              "11": 244,
+              "18": 245,
+              "19": 291,
+              "20": 295
+            }
+          },
+          "posthoc": {
+            "n_attack": 360,
+            "n_benign": 62,
+            "n_detected_attack": 259,
+            "detection_rate": 0.7194444444444444,
+            "false_alarm_rate": 0.03225806451612903,
+            "median_time_to_detection": null,
+            "min_time_to_detection": null,
+            "max_time_to_detection": null,
+            "cumulative_detected_by_request": {}
+          }
+        }
+      },
+      "v4": {
+        "online_detection": 0.917,
+        "online_false_alarm": 0.032,
+        "n_refits": 196,
+        "anchors_pos": 198,
+        "anchors_neg": 35,
+        "pseudo_precision": {
+          "n_pos_anchors": 198.0,
+          "pos_anchor_precision": 0.995,
+          "n_neg_anchors": 35.0,
+          "neg_anchor_precision": 1.0
+        }
+      },
+      "per_family": [
+        {
+          "family": "pretraining_membership_inference_scorebased",
+          "name": "MIA score-based",
+          "n": 80,
+          "v1": 75,
+          "v2": 75,
+          "v3": 51,
+          "v4": 51
+        },
+        {
+          "family": "pretraining_membership_inference",
+          "name": "Extraction (prefix)",
+          "n": 12,
+          "v1": 12,
+          "v2": 12,
+          "v3": 12,
+          "v4": 11
+        },
+        {
+          "family": "sampling",
+          "name": "Extraction (sampling 25x)",
+          "n": 144,
+          "v1": 77,
+          "v2": 117,
+          "v3": 114,
+          "v4": 134
+        },
+        {
+          "family": "adaptive",
+          "name": "Extraction (adaptive)",
+          "n": 144,
+          "v1": 90,
+          "v2": 122,
+          "v3": 118,
+          "v4": 134
+        },
+        {
+          "family": "benign",
+          "name": "benign",
+          "n": 62,
+          "v1": 6,
+          "v2": 6,
+          "v3": 2,
+          "v4": 2
+        }
+      ],
+      "new_feature_auc": {
+        "feature_session_chaining_rate": 0.857,
+        "feature_session_response_novelty_mean": 0.526,
+        "feature_session_response_novelty_min": 0.534,
+        "feature_session_prompt_growth": 0.729
+      }
+    }
+  }
+}

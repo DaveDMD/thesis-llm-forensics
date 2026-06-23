@@ -1,0 +1,345 @@
+{
+  "status": "ok",
+  "analysis": "b7_v5_rag",
+  "world": "rag_mistral_realistic_bd",
+  "fpr_target": 0.1,
+  "generated_at_utc": "2026-06-23T20:06:28.944893+00:00",
+  "salt_id": "combined-rag-salt",
+  "note": "v5 = behavioural-specialised base (Motore 1) + defense-action online anchor (Motore 2); LOFO probes the closed-world limit. Reads committed streams only; gate reproduces the committed frozen/v4rag/grouped_cv AUCs.",
+  "E0": {
+    "stream": "E0_cmb-rag-E0-b3712267.jsonl",
+    "n_sessions": 43,
+    "n_attack": 33,
+    "n_sessions_with_defense_action": 0,
+    "gate": {
+      "gate_ok": true,
+      "checks": {
+        "frozen_v1": {
+          "auc": 0.382,
+          "committed": 0.382,
+          "match": true
+        },
+        "frozen_v2": {
+          "auc": 0.382,
+          "committed": 0.382,
+          "match": true
+        },
+        "frozen_v3": {
+          "auc": 0.382,
+          "committed": 0.382,
+          "match": true
+        },
+        "v4rag": {
+          "auc": 0.382,
+          "committed": 0.382,
+          "n_refits": 0,
+          "committed_refits": 0,
+          "match": true
+        },
+        "grouped_cv": {
+          "auc": 1.0,
+          "committed": 1.0,
+          "match": true
+        }
+      }
+    },
+    "motore1_specialised_base": {
+      "ablation": {
+        "partition": {
+          "length": [
+            "feature_session_max_prompt_len",
+            "feature_session_mean_prompt_len",
+            "feature_session_mean_response_len",
+            "feature_session_n_requests",
+            "feature_session_std_prompt_len",
+            "feature_session_std_response_len"
+          ],
+          "behavioral": [
+            "feature_session_chaining_rate",
+            "feature_session_max_whitespace_ratio",
+            "feature_session_mean_latency",
+            "feature_session_mean_whitespace_ratio",
+            "feature_session_prompt_degeneracy_max",
+            "feature_session_prompt_degeneracy_mean",
+            "feature_session_prompt_diversity",
+            "feature_session_prompt_growth",
+            "feature_session_prompt_incomplete_rate",
+            "feature_session_prompt_self_similarity",
+            "feature_session_refusal_rate",
+            "feature_session_response_novelty_mean",
+            "feature_session_response_novelty_min",
+            "feature_session_secret_like_rate",
+            "feature_session_std_latency"
+          ]
+        },
+        "all": {
+          "auc": 1.0,
+          "tpr": 1.0,
+          "fpr": 0.1,
+          "threshold": 0.097,
+          "per_family": {},
+          "n_features": 21
+        },
+        "length_only": {
+          "auc": 0.979,
+          "tpr": 0.909,
+          "fpr": 0.1,
+          "threshold": 0.4414,
+          "per_family": {},
+          "n_features": 6
+        },
+        "behavioral_only": {
+          "auc": 1.0,
+          "tpr": 1.0,
+          "fpr": 0.1,
+          "threshold": 0.1636,
+          "per_family": {},
+          "n_features": 15
+        }
+      },
+      "behavioral_with_per_family": {
+        "auc": 1.0,
+        "tpr": 1.0,
+        "fpr": 0.1,
+        "threshold": 0.1636,
+        "per_family": {
+          "promptinject_goal_hijack": 1.0,
+          "promptinject_prompt_leak": 1.0,
+          "rag_kb_extraction": 1.0,
+          "promptinject_goal_hijack/stealth": 1.0,
+          "rag_backdoor_trigger": 1.0
+        }
+      }
+    },
+    "motore2_defense_loop": {
+      "defense": {
+        "auc": 0.382,
+        "tpr": 0.0,
+        "fpr": 0.1,
+        "threshold": 1.0,
+        "per_family": {
+          "promptinject_goal_hijack": 0.0,
+          "promptinject_prompt_leak": 0.0,
+          "rag_kb_extraction": 0.0,
+          "promptinject_goal_hijack/stealth": 0.0,
+          "rag_backdoor_trigger": 0.0
+        },
+        "n_refits": 0,
+        "pseudo_label": {
+          "n_pos_anchors": 0.0,
+          "pos_anchor_precision": NaN,
+          "n_neg_anchors": 2.0,
+          "neg_anchor_precision": 1.0
+        }
+      },
+      "defense_gated": {
+        "auc": 0.382,
+        "tpr": 0.0,
+        "fpr": 0.1,
+        "threshold": 1.0,
+        "per_family": {
+          "promptinject_goal_hijack": 0.0,
+          "promptinject_prompt_leak": 0.0,
+          "rag_kb_extraction": 0.0,
+          "promptinject_goal_hijack/stealth": 0.0,
+          "rag_backdoor_trigger": 0.0
+        },
+        "n_refits": 0,
+        "pseudo_label": {
+          "n_pos_anchors": 0.0,
+          "pos_anchor_precision": NaN,
+          "n_neg_anchors": 2.0,
+          "neg_anchor_precision": 1.0
+        }
+      }
+    },
+    "lofo_novelty": {
+      "promptinject_goal_hijack": {
+        "n_family_sessions": 9,
+        "base_tpr_at_0.5": 1.0,
+        "online_tpr_at_0.5": 1.0,
+        "n_refits": 0
+      },
+      "promptinject_prompt_leak": {
+        "n_family_sessions": 9,
+        "base_tpr_at_0.5": 0.889,
+        "online_tpr_at_0.5": 0.889,
+        "n_refits": 0
+      },
+      "rag_kb_extraction": {
+        "n_family_sessions": 9,
+        "base_tpr_at_0.5": 1.0,
+        "online_tpr_at_0.5": 1.0,
+        "n_refits": 0
+      }
+    }
+  },
+  "E1": {
+    "stream": "E1_cmb-rag-E1-8f32e49f.jsonl",
+    "n_sessions": 43,
+    "n_attack": 33,
+    "n_sessions_with_defense_action": 10,
+    "gate": {
+      "gate_ok": true,
+      "checks": {
+        "frozen_v1": {
+          "auc": 0.376,
+          "committed": 0.376,
+          "match": true
+        },
+        "frozen_v2": {
+          "auc": 0.379,
+          "committed": 0.379,
+          "match": true
+        },
+        "frozen_v3": {
+          "auc": 0.379,
+          "committed": 0.379,
+          "match": true
+        },
+        "v4rag": {
+          "auc": 0.379,
+          "committed": 0.379,
+          "n_refits": 0,
+          "committed_refits": 0,
+          "match": true
+        },
+        "grouped_cv": {
+          "auc": 1.0,
+          "committed": 1.0,
+          "match": true
+        }
+      }
+    },
+    "motore1_specialised_base": {
+      "ablation": {
+        "partition": {
+          "length": [
+            "feature_session_max_prompt_len",
+            "feature_session_mean_prompt_len",
+            "feature_session_mean_response_len",
+            "feature_session_n_requests",
+            "feature_session_std_prompt_len",
+            "feature_session_std_response_len"
+          ],
+          "behavioral": [
+            "feature_session_chaining_rate",
+            "feature_session_max_whitespace_ratio",
+            "feature_session_mean_latency",
+            "feature_session_mean_whitespace_ratio",
+            "feature_session_prompt_degeneracy_max",
+            "feature_session_prompt_degeneracy_mean",
+            "feature_session_prompt_diversity",
+            "feature_session_prompt_growth",
+            "feature_session_prompt_incomplete_rate",
+            "feature_session_prompt_self_similarity",
+            "feature_session_refusal_rate",
+            "feature_session_response_novelty_mean",
+            "feature_session_response_novelty_min",
+            "feature_session_secret_like_rate",
+            "feature_session_std_latency"
+          ]
+        },
+        "all": {
+          "auc": 1.0,
+          "tpr": 1.0,
+          "fpr": 0.1,
+          "threshold": 0.1209,
+          "per_family": {},
+          "n_features": 21
+        },
+        "length_only": {
+          "auc": 0.979,
+          "tpr": 0.909,
+          "fpr": 0.1,
+          "threshold": 0.4428,
+          "per_family": {},
+          "n_features": 6
+        },
+        "behavioral_only": {
+          "auc": 1.0,
+          "tpr": 1.0,
+          "fpr": 0.1,
+          "threshold": 0.1238,
+          "per_family": {},
+          "n_features": 15
+        }
+      },
+      "behavioral_with_per_family": {
+        "auc": 1.0,
+        "tpr": 1.0,
+        "fpr": 0.1,
+        "threshold": 0.1238,
+        "per_family": {
+          "promptinject_goal_hijack": 1.0,
+          "promptinject_prompt_leak": 1.0,
+          "rag_kb_extraction": 1.0,
+          "promptinject_goal_hijack/stealth": 1.0,
+          "rag_backdoor_trigger": 1.0
+        }
+      }
+    },
+    "motore2_defense_loop": {
+      "defense": {
+        "auc": 0.379,
+        "tpr": 0.0,
+        "fpr": 0.1,
+        "threshold": 1.0,
+        "per_family": {
+          "promptinject_goal_hijack": 0.0,
+          "promptinject_prompt_leak": 0.0,
+          "rag_kb_extraction": 0.0,
+          "promptinject_goal_hijack/stealth": 0.0,
+          "rag_backdoor_trigger": 0.0
+        },
+        "n_refits": 0,
+        "pseudo_label": {
+          "n_pos_anchors": 10.0,
+          "pos_anchor_precision": 0.4,
+          "n_neg_anchors": 2.0,
+          "neg_anchor_precision": 1.0
+        }
+      },
+      "defense_gated": {
+        "auc": 0.379,
+        "tpr": 0.0,
+        "fpr": 0.1,
+        "threshold": 1.0,
+        "per_family": {
+          "promptinject_goal_hijack": 0.0,
+          "promptinject_prompt_leak": 0.0,
+          "rag_kb_extraction": 0.0,
+          "promptinject_goal_hijack/stealth": 0.0,
+          "rag_backdoor_trigger": 0.0
+        },
+        "n_refits": 0,
+        "pseudo_label": {
+          "n_pos_anchors": 0.0,
+          "pos_anchor_precision": NaN,
+          "n_neg_anchors": 2.0,
+          "neg_anchor_precision": 1.0
+        }
+      }
+    },
+    "lofo_novelty": {
+      "promptinject_goal_hijack": {
+        "n_family_sessions": 9,
+        "base_tpr_at_0.5": 1.0,
+        "online_tpr_at_0.5": 1.0,
+        "n_refits": 0
+      },
+      "promptinject_prompt_leak": {
+        "n_family_sessions": 9,
+        "base_tpr_at_0.5": 1.0,
+        "online_tpr_at_0.5": 1.0,
+        "n_refits": 7
+      },
+      "rag_kb_extraction": {
+        "n_family_sessions": 9,
+        "base_tpr_at_0.5": 1.0,
+        "online_tpr_at_0.5": 1.0,
+        "n_refits": 0
+      }
+    }
+  }
+}

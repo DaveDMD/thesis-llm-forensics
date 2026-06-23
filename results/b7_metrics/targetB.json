@@ -1,0 +1,292 @@
+{
+  "status": "ok",
+  "target": "gpt2-medium@607022bd",
+  "regime": "finetune_realistic_owt_1ep",
+  "fpr_target": 0.1,
+  "generated_at_utc": "2026-06-23T20:06:27.102752+00:00",
+  "note": "Re-analysis of committed evidence; no model run, no existing artefact modified. v3/v4 are not in this committed battery (v3 lives in the specialization run).",
+  "by_environment": {
+    "E0": {
+      "log": "evidence/runtime_gpt2/E0_3b11920b-9c13-4c4f-9ad4-5cc3e08146a3.jsonl",
+      "n_sessions": 442,
+      "n_unmatched": 0,
+      "planned_family_counts": {
+        "pretraining_membership_inference": 12,
+        "pretraining_membership_inference_scorebased": 80,
+        "benign": 62,
+        "sampling": 144,
+        "adaptive": 144
+      },
+      "observed_family_counts": {
+        "sampling": 144,
+        "adaptive": 144,
+        "pretraining_membership_inference_scorebased": 80,
+        "benign": 62,
+        "pretraining_membership_inference": 12
+      },
+      "validation": {
+        "ok": true,
+        "plan_match": true,
+        "nsess_match": true,
+        "coverage_ok": true,
+        "perfamily_match": true,
+        "committed_per_family_posthoc": {
+          "v1": {
+            "pretraining_membership_inference_scorebased": 80,
+            "pretraining_membership_inference": 0,
+            "sampling": 144,
+            "adaptive": 0,
+            "benign": 0
+          },
+          "v2": {
+            "pretraining_membership_inference_scorebased": 80,
+            "pretraining_membership_inference": 3,
+            "sampling": 144,
+            "adaptive": 6,
+            "benign": 6
+          }
+        },
+        "recomputed_per_family_posthoc": {
+          "v1": {
+            "pretraining_membership_inference_scorebased": 80,
+            "pretraining_membership_inference": 0,
+            "sampling": 144,
+            "adaptive": 0,
+            "benign": 0
+          },
+          "v2": {
+            "pretraining_membership_inference_scorebased": 80,
+            "pretraining_membership_inference": 3,
+            "sampling": 144,
+            "adaptive": 6,
+            "benign": 6
+          }
+        }
+      },
+      "frozen": {
+        "v1": {
+          "auc": 0.827,
+          "tpr": 0.658,
+          "fpr": 0.097,
+          "threshold": 0.0054,
+          "per_family": {
+            "sampling": 1.0,
+            "adaptive": 0.111,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "pretraining_membership_inference": 0.833
+          },
+          "posthoc_det@0.5": 0.589,
+          "posthoc_fa@0.5": 0.0
+        },
+        "v2": {
+          "auc": 0.866,
+          "tpr": 0.705,
+          "fpr": 0.097,
+          "threshold": 0.0304,
+          "per_family": {
+            "sampling": 1.0,
+            "adaptive": 0.222,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "pretraining_membership_inference": 1.0
+          },
+          "posthoc_det@0.5": 0.613,
+          "posthoc_fa@0.5": 0.097
+        }
+      },
+      "ablation": {
+        "partition": {
+          "length": [
+            "feature_session_max_prompt_len",
+            "feature_session_mean_prompt_len",
+            "feature_session_mean_response_len",
+            "feature_session_n_requests",
+            "feature_session_std_prompt_len",
+            "feature_session_std_response_len"
+          ],
+          "behavioral": [
+            "feature_session_chaining_rate",
+            "feature_session_max_whitespace_ratio",
+            "feature_session_mean_latency",
+            "feature_session_mean_whitespace_ratio",
+            "feature_session_prompt_degeneracy_max",
+            "feature_session_prompt_degeneracy_mean",
+            "feature_session_prompt_diversity",
+            "feature_session_prompt_growth",
+            "feature_session_prompt_incomplete_rate",
+            "feature_session_prompt_self_similarity",
+            "feature_session_refusal_rate",
+            "feature_session_response_novelty_mean",
+            "feature_session_response_novelty_min",
+            "feature_session_secret_like_rate",
+            "feature_session_std_latency"
+          ]
+        },
+        "all": {
+          "auc": 1.0,
+          "tpr": 1.0,
+          "fpr": 0.097,
+          "threshold": 0.0421,
+          "per_family": {},
+          "n_features": 21
+        },
+        "length_only": {
+          "auc": 0.867,
+          "tpr": 0.663,
+          "fpr": 0.097,
+          "threshold": 0.5818,
+          "per_family": {},
+          "n_features": 6
+        },
+        "behavioral_only": {
+          "auc": 1.0,
+          "tpr": 0.997,
+          "fpr": 0.097,
+          "threshold": 0.1595,
+          "per_family": {},
+          "n_features": 15
+        }
+      }
+    },
+    "E1": {
+      "log": "evidence/runtime_gpt2/E1_c783c4df-958b-404b-8b0c-e3d0cdd769d5.jsonl",
+      "n_sessions": 442,
+      "n_unmatched": 0,
+      "planned_family_counts": {
+        "pretraining_membership_inference": 12,
+        "pretraining_membership_inference_scorebased": 80,
+        "benign": 62,
+        "sampling": 144,
+        "adaptive": 144
+      },
+      "observed_family_counts": {
+        "sampling": 144,
+        "adaptive": 144,
+        "pretraining_membership_inference_scorebased": 80,
+        "benign": 62,
+        "pretraining_membership_inference": 12
+      },
+      "validation": {
+        "ok": true,
+        "plan_match": true,
+        "nsess_match": true,
+        "coverage_ok": true,
+        "perfamily_match": true,
+        "committed_per_family_posthoc": {
+          "v1": {
+            "pretraining_membership_inference_scorebased": 80,
+            "pretraining_membership_inference": 0,
+            "sampling": 0,
+            "adaptive": 0,
+            "benign": 2
+          },
+          "v2": {
+            "pretraining_membership_inference_scorebased": 80,
+            "pretraining_membership_inference": 2,
+            "sampling": 0,
+            "adaptive": 1,
+            "benign": 6
+          }
+        },
+        "recomputed_per_family_posthoc": {
+          "v1": {
+            "pretraining_membership_inference_scorebased": 80,
+            "pretraining_membership_inference": 0,
+            "sampling": 0,
+            "adaptive": 0,
+            "benign": 2
+          },
+          "v2": {
+            "pretraining_membership_inference_scorebased": 80,
+            "pretraining_membership_inference": 2,
+            "sampling": 0,
+            "adaptive": 1,
+            "benign": 6
+          }
+        }
+      },
+      "frozen": {
+        "v1": {
+          "auc": 0.731,
+          "tpr": 0.35,
+          "fpr": 0.097,
+          "threshold": 0.0034,
+          "per_family": {
+            "sampling": 0.083,
+            "adaptive": 0.201,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "pretraining_membership_inference": 1.0
+          },
+          "posthoc_det@0.5": 0.211,
+          "posthoc_fa@0.5": 0.032
+        },
+        "v2": {
+          "auc": 0.715,
+          "tpr": 0.35,
+          "fpr": 0.097,
+          "threshold": 0.0252,
+          "per_family": {
+            "sampling": 0.076,
+            "adaptive": 0.208,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "pretraining_membership_inference": 1.0
+          },
+          "posthoc_det@0.5": 0.218,
+          "posthoc_fa@0.5": 0.097
+        }
+      },
+      "ablation": {
+        "partition": {
+          "length": [
+            "feature_session_max_prompt_len",
+            "feature_session_mean_prompt_len",
+            "feature_session_mean_response_len",
+            "feature_session_n_requests",
+            "feature_session_std_prompt_len",
+            "feature_session_std_response_len"
+          ],
+          "behavioral": [
+            "feature_session_chaining_rate",
+            "feature_session_max_whitespace_ratio",
+            "feature_session_mean_latency",
+            "feature_session_mean_whitespace_ratio",
+            "feature_session_prompt_degeneracy_max",
+            "feature_session_prompt_degeneracy_mean",
+            "feature_session_prompt_diversity",
+            "feature_session_prompt_growth",
+            "feature_session_prompt_incomplete_rate",
+            "feature_session_prompt_self_similarity",
+            "feature_session_refusal_rate",
+            "feature_session_response_novelty_mean",
+            "feature_session_response_novelty_min",
+            "feature_session_secret_like_rate",
+            "feature_session_std_latency"
+          ]
+        },
+        "all": {
+          "auc": 1.0,
+          "tpr": 1.0,
+          "fpr": 0.097,
+          "threshold": 0.0319,
+          "per_family": {},
+          "n_features": 21
+        },
+        "length_only": {
+          "auc": 0.808,
+          "tpr": 0.074,
+          "fpr": 0.097,
+          "threshold": 0.8228,
+          "per_family": {},
+          "n_features": 6
+        },
+        "behavioral_only": {
+          "auc": 1.0,
+          "tpr": 1.0,
+          "fpr": 0.097,
+          "threshold": 0.0848,
+          "per_family": {},
+          "n_features": 15
+        }
+      }
+    }
+  }
+}

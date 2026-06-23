@@ -1,0 +1,42 @@
+{
+  "campaign": "RAG",
+  "title": "Mistral-7B-Instruct (NF4) + Chroma — retrieval world",
+  "model": "mistralai/Mistral-7B-Instruct-v0.2 (4-bit NF4)",
+  "retriever": "ChromaRetriever (cosine) + all-MiniLM-L6-v2",
+  "regime": "RAG / retrieval — prompt injection, trigger-gated KB backdoor, popularity (Mallen), system-prompt leak",
+  "detectors": [
+    "results/detectors/v1.joblib",
+    "results/detectors/v2.joblib",
+    "results/detectors/v3.joblib (frozen, applied OOD)",
+    "v5 behavioral detector built in-analysis by run_b7_v5_rag.py"
+  ],
+  "replay_streams": {
+    "combined": {
+      "E0": "evidence/combined_rag/E0_cmb-rag-E0-b3712267.jsonl",
+      "E1": "evidence/combined_rag/E1_cmb-rag-E1-8f32e49f.jsonl"
+    },
+    "promptinject": "evidence/promptinject_rag/E{0,1}_*.jsonl",
+    "backdoor": "evidence/backdoor_rag/E{0,1}_*.jsonl",
+    "popularity": "evidence/popularity_rag/E0_*.jsonl",
+    "retrieval_targeting": "evidence/retrieval_targeting/*.jsonl"
+  },
+  "expected": {
+    "detector_metrics": "results/b7_metrics/v5_rag.json",
+    "combined_detection": "results/combined_rag/combined_detection_summary.json",
+    "promptinject": "results/promptinject_rag/promptinject_summary.json",
+    "backdoor": "results/backdoor_rag/backdoor_summary.json",
+    "popularity": "results/popularity_rag/popularity_summary.json"
+  },
+  "headline_metrics": {
+    "promptinject": {"hijack_asr": 0.83, "prompt_leak_asr": "0.0-0.10", "E1_stops_hijack": false},
+    "backdoor": {"trigger_asr": 1.0, "dormant_benign_leak": 0.0, "E1_stops_backdoor": false},
+    "popularity_mallen": {"kb_secret_leak_off_to_on": "0.0 -> 0.53", "popular_acc_off_to_on": "1.0 -> 0.0"},
+    "detector": {
+      "frozen_cross_target_ood_auc": 0.38,
+      "frozen_tpr_at_fpr0.1": 0.0,
+      "grouped_cv_in_distribution_auc": 1.0,
+      "v5_behavioral_at_0.5": "33/33 attacks, 0 FP",
+      "note": "frozen detectors fail on hard verbose negatives (feature polarity flips); detection needs in-distribution specialisation"
+    }
+  }
+}

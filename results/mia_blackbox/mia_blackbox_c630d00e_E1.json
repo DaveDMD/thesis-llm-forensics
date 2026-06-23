@@ -1,0 +1,13 @@
+{
+  "status": "ok",
+  "environment": "E1",
+  "checkpoint": "/workspace/models/finetuned/c630d00e-9dda-4265-ad79-e5ae39189b40",
+  "attacker": "black_box_api",
+  "channel": "echo_logprobs",
+  "docs_total": 600,
+  "docs_with_logprobs": 0,
+  "docs_blocked": 0,
+  "feasible": false,
+  "methods": {},
+  "note": "E0: API echoes prompt logprobs -> loss-family MIA feasible. E1: score channel closed -> no logprobs -> MIA INFEASIBLE (chance). ref/min_k_pp are white-box only (need a 2nd model / per-token stats)."
+}

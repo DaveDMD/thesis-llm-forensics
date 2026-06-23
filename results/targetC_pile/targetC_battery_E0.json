@@ -1,0 +1,293 @@
+{
+  "status": "ok",
+  "target": "EleutherAI/pythia-2.8b@step99000",
+  "domain": "github",
+  "regime": "pretraining",
+  "smoke": false,
+  "mia": {
+    "white_box": {
+      "methods": {
+        "loss": {
+          "auc": 0.7204,
+          "confirmed_at_fpr10": 138,
+          "members": 300
+        },
+        "min_k": {
+          "auc": 0.7249,
+          "confirmed_at_fpr10": 140,
+          "members": 300
+        },
+        "min_k_pp": {
+          "auc": 0.712,
+          "confirmed_at_fpr10": 123,
+          "members": 300
+        },
+        "zlib": {
+          "auc": 0.7366,
+          "confirmed_at_fpr10": 140,
+          "members": 300
+        },
+        "ref": {
+          "auc": 0.4737,
+          "confirmed_at_fpr10": 48,
+          "members": 300
+        }
+      },
+      "best": "zlib",
+      "best_auc": 0.7366
+    },
+    "black_box": {
+      "E0_best": "zlib",
+      "E0_best_auc": 0.7366,
+      "E1_feasible": false,
+      "note": "WB = on weights, env-independent. BB E0 = uncalibrated echo (<=WB). BB E1 infeasible (score channel closed)."
+    }
+  },
+  "v_provenance": {
+    "v1": {
+      "instance": "v1",
+      "description": "frozen Passata-1 detector (pool excluding the gpt2 cell)",
+      "secret_recogniser": "v1_regex",
+      "n_train_sessions": 561,
+      "n_attack": 385,
+      "train_cells": {
+        "github/EleutherAI/pythia-2.8b": 161,
+        "arxiv/EleutherAI/pythia-2.8b": 161,
+        "github/EleutherAI/pythia-1.4b": 161,
+        "canary/pythia-410m-finetuned": 78
+      },
+      "includes_gpt2_cell": false
+    },
+    "v2": {
+      "instance": "v2",
+      "description": "specialised detector (pool including gpt2 residues)",
+      "secret_recogniser": "v2_extended_PAN_CONF",
+      "n_train_sessions": 757,
+      "n_attack": 457,
+      "train_cells": {
+        "github/EleutherAI/pythia-2.8b": 161,
+        "arxiv/EleutherAI/pythia-2.8b": 161,
+        "github/EleutherAI/pythia-1.4b": 161,
+        "canary/pythia-410m-finetuned": 78,
+        "rich_canary/gpt2-medium-finetuned": 196
+      },
+      "includes_gpt2_cell": true
+    },
+    "v3": {
+      "instance": "v3",
+      "description": "within-target specialised (pool incl. TARGET-B)",
+      "secret_recogniser": "v2_extended_PAN_CONF",
+      "n_train_sessions": 1065,
+      "n_gpt2_cell_sessions": 504,
+      "includes_targetB": true
+    }
+  },
+  "by_environment": {
+    "E0": {
+      "env": "E0",
+      "run_id": "95bd646d-5f3e-4c40-8355-17c97e21936f",
+      "n_sessions": 442,
+      "attack_outcomes": {
+        "extraction_prefix": {
+          "member": "47/144",
+          "nonmember": "0/0",
+          "secrets_extracted": 47
+        },
+        "sampling": {
+          "secrets": "86/144"
+        },
+        "adaptive": {
+          "secrets": "71/144"
+        }
+      },
+      "detectors": {
+        "v1": {
+          "online": {
+            "n_attack": 380,
+            "n_benign": 62,
+            "n_detected_attack": 237,
+            "detection_rate": 0.6236842105263158,
+            "false_alarm_rate": 0.0967741935483871,
+            "median_time_to_detection": 17,
+            "min_time_to_detection": 1,
+            "max_time_to_detection": 23,
+            "cumulative_detected_by_request": {
+              "1": 14,
+              "2": 15,
+              "3": 19,
+              "4": 20,
+              "5": 21,
+              "6": 22,
+              "7": 23,
+              "8": 24,
+              "9": 26,
+              "10": 28,
+              "11": 31,
+              "12": 40,
+              "13": 52,
+              "14": 62,
+              "15": 82,
+              "16": 98,
+              "17": 163,
+              "18": 206,
+              "19": 224,
+              "20": 230,
+              "21": 233,
+              "22": 235,
+              "23": 237
+            }
+          },
+          "posthoc": {
+            "n_attack": 380,
+            "n_benign": 62,
+            "n_detected_attack": 233,
+            "detection_rate": 0.6131578947368421,
+            "false_alarm_rate": 0.0967741935483871,
+            "median_time_to_detection": null,
+            "min_time_to_detection": null,
+            "max_time_to_detection": null,
+            "cumulative_detected_by_request": {}
+          }
+        },
+        "v2": {
+          "online": {
+            "n_attack": 380,
+            "n_benign": 62,
+            "n_detected_attack": 376,
+            "detection_rate": 0.9894736842105263,
+            "false_alarm_rate": 0.0967741935483871,
+            "median_time_to_detection": 1.0,
+            "min_time_to_detection": 1,
+            "max_time_to_detection": 19,
+            "cumulative_detected_by_request": {
+              "1": 289,
+              "2": 291,
+              "5": 292,
+              "9": 293,
+              "11": 294,
+              "12": 295,
+              "13": 296,
+              "14": 297,
+              "17": 311,
+              "18": 374,
+              "19": 376
+            }
+          },
+          "posthoc": {
+            "n_attack": 380,
+            "n_benign": 62,
+            "n_detected_attack": 374,
+            "detection_rate": 0.9842105263157894,
+            "false_alarm_rate": 0.0967741935483871,
+            "median_time_to_detection": null,
+            "min_time_to_detection": null,
+            "max_time_to_detection": null,
+            "cumulative_detected_by_request": {}
+          }
+        },
+        "v3": {
+          "online": {
+            "n_attack": 380,
+            "n_benign": 62,
+            "n_detected_attack": 376,
+            "detection_rate": 0.9894736842105263,
+            "false_alarm_rate": 0.08064516129032258,
+            "median_time_to_detection": 1.0,
+            "min_time_to_detection": 1,
+            "max_time_to_detection": 20,
+            "cumulative_detected_by_request": {
+              "1": 289,
+              "2": 291,
+              "5": 292,
+              "9": 293,
+              "10": 294,
+              "12": 295,
+              "13": 296,
+              "14": 297,
+              "18": 299,
+              "19": 371,
+              "20": 376
+            }
+          },
+          "posthoc": {
+            "n_attack": 380,
+            "n_benign": 62,
+            "n_detected_attack": 374,
+            "detection_rate": 0.9842105263157894,
+            "false_alarm_rate": 0.08064516129032258,
+            "median_time_to_detection": null,
+            "min_time_to_detection": null,
+            "max_time_to_detection": null,
+            "cumulative_detected_by_request": {}
+          }
+        }
+      },
+      "v4": {
+        "online_detection": 0.995,
+        "online_false_alarm": 0.097,
+        "n_refits": 316,
+        "anchors_pos": 300,
+        "anchors_neg": 30,
+        "pseudo_precision": {
+          "n_pos_anchors": 300.0,
+          "pos_anchor_precision": 0.993,
+          "n_neg_anchors": 30.0,
+          "neg_anchor_precision": 1.0
+        }
+      },
+      "per_family": [
+        {
+          "family": "pretraining_membership_inference_scorebased",
+          "name": "MIA score-based",
+          "n": 80,
+          "v1": 80,
+          "v2": 80,
+          "v3": 80,
+          "v4": 80
+        },
+        {
+          "family": "pretraining_membership_inference",
+          "name": "Extraction (prefix)",
+          "n": 12,
+          "v1": 3,
+          "v2": 12,
+          "v3": 12,
+          "v4": 12
+        },
+        {
+          "family": "sampling",
+          "name": "Extraction (sampling 25x)",
+          "n": 144,
+          "v1": 144,
+          "v2": 144,
+          "v3": 144,
+          "v4": 144
+        },
+        {
+          "family": "adaptive",
+          "name": "Extraction (adaptive)",
+          "n": 144,
+          "v1": 10,
+          "v2": 140,
+          "v3": 140,
+          "v4": 142
+        },
+        {
+          "family": "benign",
+          "name": "benign",
+          "n": 62,
+          "v1": 6,
+          "v2": 6,
+          "v3": 5,
+          "v4": 6
+        }
+      ],
+      "new_feature_auc": {
+        "feature_session_chaining_rate": 0.719,
+        "feature_session_response_novelty_mean": 0.515,
+        "feature_session_response_novelty_min": 0.504,
+        "feature_session_prompt_growth": 0.544
+      }
+    }
+  }
+}

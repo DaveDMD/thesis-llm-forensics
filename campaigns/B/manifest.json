@@ -1,0 +1,54 @@
+{
+  "campaign": "B",
+  "title": "gpt2-medium / OpenWebText 1-epoch (realistic)",
+  "checkpoint_id": "607022bd",
+  "registry": "results/canary/607022bd-5f26-4b33-bbb4-e17215a883be_registry.json",
+  "regime": "fine-tuning, realistic (large corpus, single epoch, disjoint context)",
+  "detectors": [
+    "results/detectors/v1.joblib",
+    "results/detectors/v2.joblib",
+    "results/detectors/v3.joblib"
+  ],
+  "replay_streams": {
+    "runtime": {
+      "E0": "evidence/runtime_gpt2/E0_3b11920b-9c13-4c4f-9ad4-5cc3e08146a3.jsonl",
+      "E1": "evidence/runtime_gpt2/E1_c783c4df-958b-404b-8b0c-e3d0cdd769d5.jsonl"
+    },
+    "prefix_attack": [
+      "evidence/canary_attack/d881b862-a5d2-4e48-b2d5-b9fac60ced5b.jsonl",
+      "evidence/canary_attack/e65e4442-b28b-4703-bce0-eafe65de2576.jsonl"
+    ],
+    "sampling": "evidence/sampling_canary/*607022bd*.jsonl",
+    "adaptive": "evidence/adaptive_canary/*607022bd*.jsonl"
+  },
+  "expected": {
+    "detector_metrics": "results/b7_metrics/targetB.json",
+    "runtime_battery": "results/runtime_detection/runtime_battery.json",
+    "mia_whitebox": "results/mia_comparison/mia_comparison_owt1ep.json",
+    "mia_blackbox": [
+      "results/mia_blackbox/mia_blackbox_E0.json",
+      "results/mia_blackbox/mia_blackbox_E1.json"
+    ],
+    "sampling": [
+      "results/sampling_canary/sampling_canary_607022bd_E0_summary.json",
+      "results/sampling_canary/sampling_canary_607022bd_E1_summary.json"
+    ],
+    "adaptive": [
+      "results/adaptive_canary/adaptive_canary_607022bd_E0_summary.json",
+      "results/adaptive_canary/adaptive_canary_607022bd_E1_summary.json"
+    ]
+  },
+  "headline_metrics": {
+    "mia_whitebox_auc": {"ref": 0.98, "loss": 0.95, "min_k": 0.94, "min_k_pp": 0.87, "zlib": 0.84},
+    "mia_blackbox_auc": {"E0_loss": 0.95, "E1": "infeasible"},
+    "extraction_secrets_out_of_144": {
+      "E0": {"prefix": "12-14", "sampling": 50, "adaptive": 16, "union": 80},
+      "E1": "0 (full containment on every family)"
+    },
+    "detector_best": {
+      "posthoc_auc": 0.989,
+      "runtime_frozen_ood_E0_auc": {"v1": 0.827, "v2": 0.866},
+      "specialisation_lift_v3_vs_v2": 0.011
+    }
+  }
+}

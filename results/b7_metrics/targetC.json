@@ -1,0 +1,351 @@
+{
+  "status": "ok",
+  "target": "EleutherAI/pythia-2.8b@step99000",
+  "regime": "pretraining",
+  "domain": "github",
+  "fpr_target": 0.1,
+  "generated_at_utc": "2026-06-23T20:22:38.050942+00:00",
+  "note": "Re-analysis of committed evidence; no model run, no existing artefact modified.",
+  "by_environment": {
+    "E0": {
+      "log": "evidence/targetC_pile/E0_95bd646d-5f3e-4c40-8355-17c97e21936f.jsonl",
+      "n_sessions": 442,
+      "n_unmatched": 0,
+      "planned_family_counts": {
+        "pretraining_membership_inference_scorebased": 80,
+        "pretraining_membership_inference": 12,
+        "benign": 62,
+        "sampling": 144,
+        "adaptive": 144
+      },
+      "observed_family_counts": {
+        "sampling": 144,
+        "pretraining_membership_inference_scorebased": 80,
+        "benign": 62,
+        "adaptive": 144,
+        "pretraining_membership_inference": 12
+      },
+      "validation": {
+        "ok": true,
+        "plan_match": true,
+        "nsess_match": true,
+        "coverage_ok": true,
+        "detfa_match": true,
+        "v4_detfa_match": true,
+        "committed_posthoc": {
+          "v1": {
+            "det": 0.6131578947368421,
+            "fa": 0.0967741935483871
+          },
+          "v2": {
+            "det": 0.9842105263157894,
+            "fa": 0.0967741935483871
+          },
+          "v3": {
+            "det": 0.9842105263157894,
+            "fa": 0.08064516129032258
+          }
+        },
+        "recomputed_posthoc": {
+          "v1": {
+            "det": 0.613158,
+            "fa": 0.096774
+          },
+          "v2": {
+            "det": 0.984211,
+            "fa": 0.096774
+          },
+          "v3": {
+            "det": 0.984211,
+            "fa": 0.080645
+          }
+        },
+        "committed_v4": {
+          "det": 0.995,
+          "fa": 0.097
+        },
+        "recomputed_v4": {
+          "det": 0.997368,
+          "fa": 0.096774
+        }
+      },
+      "frozen": {
+        "v1": {
+          "auc": 0.774,
+          "tpr": 0.645,
+          "fpr": 0.097,
+          "threshold": 0.1952,
+          "per_family": {
+            "sampling": 1.0,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "adaptive": 0.069,
+            "pretraining_membership_inference": 0.917
+          }
+        },
+        "v2": {
+          "auc": 0.995,
+          "tpr": 0.992,
+          "fpr": 0.097,
+          "threshold": 0.329,
+          "per_family": {
+            "sampling": 1.0,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "adaptive": 0.979,
+            "pretraining_membership_inference": 1.0
+          }
+        },
+        "v3": {
+          "auc": 0.995,
+          "tpr": 0.989,
+          "fpr": 0.097,
+          "threshold": 0.3575,
+          "per_family": {
+            "sampling": 1.0,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "adaptive": 0.972,
+            "pretraining_membership_inference": 1.0
+          }
+        }
+      },
+      "v4": {
+        "auc": 0.975,
+        "tpr": 0.997,
+        "fpr": 0.097,
+        "threshold": 0.3575,
+        "per_family": {
+          "sampling": 1.0,
+          "pretraining_membership_inference_scorebased": 1.0,
+          "adaptive": 0.993,
+          "pretraining_membership_inference": 1.0
+        },
+        "native_det": 0.997,
+        "native_fa": 0.097,
+        "n_refits": 316,
+        "validation_note": "stateful/online: det/FA validated within one-session slack"
+      },
+      "ablation": {
+        "partition": {
+          "length": [
+            "feature_session_max_prompt_len",
+            "feature_session_mean_prompt_len",
+            "feature_session_mean_response_len",
+            "feature_session_n_requests",
+            "feature_session_std_prompt_len",
+            "feature_session_std_response_len"
+          ],
+          "behavioral": [
+            "feature_session_chaining_rate",
+            "feature_session_max_whitespace_ratio",
+            "feature_session_mean_latency",
+            "feature_session_mean_whitespace_ratio",
+            "feature_session_prompt_degeneracy_max",
+            "feature_session_prompt_degeneracy_mean",
+            "feature_session_prompt_diversity",
+            "feature_session_prompt_growth",
+            "feature_session_prompt_incomplete_rate",
+            "feature_session_prompt_self_similarity",
+            "feature_session_refusal_rate",
+            "feature_session_response_novelty_mean",
+            "feature_session_response_novelty_min",
+            "feature_session_secret_like_rate",
+            "feature_session_std_latency"
+          ]
+        },
+        "all": {
+          "auc": 0.997,
+          "tpr": 0.997,
+          "fpr": 0.097,
+          "threshold": 0.0818,
+          "per_family": {},
+          "n_features": 21
+        },
+        "length_only": {
+          "auc": 0.975,
+          "tpr": 0.937,
+          "fpr": 0.097,
+          "threshold": 0.379,
+          "per_family": {},
+          "n_features": 6
+        },
+        "behavioral_only": {
+          "auc": 0.996,
+          "tpr": 0.995,
+          "fpr": 0.097,
+          "threshold": 0.2239,
+          "per_family": {},
+          "n_features": 15
+        }
+      }
+    },
+    "E1": {
+      "log": "evidence/targetC_pile/E1_1c119ee6-3d88-461e-876e-e485f8a0600b.jsonl",
+      "n_sessions": 422,
+      "n_unmatched": 0,
+      "planned_family_counts": {
+        "pretraining_membership_inference_scorebased": 80,
+        "pretraining_membership_inference": 12,
+        "benign": 62,
+        "sampling": 144,
+        "adaptive": 144
+      },
+      "observed_family_counts": {
+        "sampling": 134,
+        "pretraining_membership_inference_scorebased": 80,
+        "benign": 62,
+        "adaptive": 134,
+        "pretraining_membership_inference": 12
+      },
+      "validation": {
+        "ok": true,
+        "plan_match": true,
+        "nsess_match": true,
+        "coverage_ok": true,
+        "detfa_match": true,
+        "v4_detfa_match": true,
+        "committed_posthoc": {
+          "v1": {
+            "det": 0.6083333333333333,
+            "fa": 0.0967741935483871
+          },
+          "v2": {
+            "det": 0.8055555555555556,
+            "fa": 0.0967741935483871
+          },
+          "v3": {
+            "det": 0.7194444444444444,
+            "fa": 0.03225806451612903
+          }
+        },
+        "recomputed_posthoc": {
+          "v1": {
+            "det": 0.608333,
+            "fa": 0.096774
+          },
+          "v2": {
+            "det": 0.805556,
+            "fa": 0.096774
+          },
+          "v3": {
+            "det": 0.719444,
+            "fa": 0.032258
+          }
+        },
+        "committed_v4": {
+          "det": 0.917,
+          "fa": 0.032
+        },
+        "recomputed_v4": {
+          "det": 0.916667,
+          "fa": 0.032258
+        }
+      },
+      "frozen": {
+        "v1": {
+          "auc": 0.909,
+          "tpr": 0.917,
+          "fpr": 0.097,
+          "threshold": 0.1276,
+          "per_family": {
+            "sampling": 0.888,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "adaptive": 0.888,
+            "pretraining_membership_inference": 1.0
+          }
+        },
+        "v2": {
+          "auc": 0.933,
+          "tpr": 0.917,
+          "fpr": 0.097,
+          "threshold": 0.2521,
+          "per_family": {
+            "sampling": 0.903,
+            "pretraining_membership_inference_scorebased": 1.0,
+            "adaptive": 0.873,
+            "pretraining_membership_inference": 1.0
+          }
+        },
+        "v3": {
+          "auc": 0.941,
+          "tpr": 0.908,
+          "fpr": 0.097,
+          "threshold": 0.2816,
+          "per_family": {
+            "sampling": 0.896,
+            "pretraining_membership_inference_scorebased": 0.975,
+            "adaptive": 0.873,
+            "pretraining_membership_inference": 1.0
+          }
+        }
+      },
+      "v4": {
+        "auc": 0.989,
+        "tpr": 0.994,
+        "fpr": 0.097,
+        "threshold": 0.2816,
+        "per_family": {
+          "sampling": 1.0,
+          "pretraining_membership_inference_scorebased": 0.975,
+          "adaptive": 1.0,
+          "pretraining_membership_inference": 1.0
+        },
+        "native_det": 0.917,
+        "native_fa": 0.032,
+        "n_refits": 196,
+        "validation_note": "stateful/online: det/FA validated within one-session slack"
+      },
+      "ablation": {
+        "partition": {
+          "length": [
+            "feature_session_max_prompt_len",
+            "feature_session_mean_prompt_len",
+            "feature_session_mean_response_len",
+            "feature_session_n_requests",
+            "feature_session_std_prompt_len",
+            "feature_session_std_response_len"
+          ],
+          "behavioral": [
+            "feature_session_chaining_rate",
+            "feature_session_max_whitespace_ratio",
+            "feature_session_mean_latency",
+            "feature_session_mean_whitespace_ratio",
+            "feature_session_prompt_degeneracy_max",
+            "feature_session_prompt_degeneracy_mean",
+            "feature_session_prompt_diversity",
+            "feature_session_prompt_growth",
+            "feature_session_prompt_incomplete_rate",
+            "feature_session_prompt_self_similarity",
+            "feature_session_refusal_rate",
+            "feature_session_response_novelty_mean",
+            "feature_session_response_novelty_min",
+            "feature_session_secret_like_rate",
+            "feature_session_std_latency"
+          ]
+        },
+        "all": {
+          "auc": 0.999,
+          "tpr": 0.997,
+          "fpr": 0.097,
+          "threshold": 0.091,
+          "per_family": {},
+          "n_features": 21
+        },
+        "length_only": {
+          "auc": 0.883,
+          "tpr": 0.442,
+          "fpr": 0.097,
+          "threshold": 0.8105,
+          "per_family": {},
+          "n_features": 6
+        },
+        "behavioral_only": {
+          "auc": 0.995,
+          "tpr": 1.0,
+          "fpr": 0.097,
+          "threshold": 0.2006,
+          "per_family": {},
+          "n_features": 15
+        }
+      }
+    }
+  }
+}

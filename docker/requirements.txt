@@ -1,0 +1,59 @@
+# === Core ML stack (aligned to the PyTorch 2.4.0 + CUDA 12.4 base image) ===
+transformers>=4.44.0,<4.50.0
+datasets>=2.20.0,<3.0.0
+accelerate>=0.33.0,<1.0.0
+tokenizers>=0.19.0,<0.21.0
+huggingface_hub>=0.24.0,<1.0.0
+safetensors>=0.4.0
+sentencepiece>=0.2.0
+
+# 4-bit NF4 quantization of the application model (Mistral-7B on 8.59 GB VRAM).
+# Pin verified (web, May 2026): bnb supports CUDA 11.0-12.5 and PyTorch 2.4+ (fullgraph=False);
+# RTX 4070 (Ada sm89) is above the NF4 minimum. The 0.45.x series = stability/compatibility trade-off.
+bitsandbytes==0.45.5
+
+# === Numerical computing and classic ML ===
+numpy>=1.26.0,<2.0.0
+scipy>=1.11.2,<1.15.0
+scikit-learn>=1.5.0,<1.7.0
+pandas>=2.2.0,<3.0.0
+
+# === MIMIR dependencies (Duan et al. 2024) ===
+# openai and ai2-olmo are imported at module top level in mimir/models.py.
+# Although OpenAI and OLMO are not used in the experiments (Pythia/GPT-2 only),
+# installing them is required to allow the package to import.
+openai>=1.40.0,<2.0.0
+ai2-olmo>=0.5.0,<0.7.0
+nltk>=3.8.1
+zstandard>=0.22.0
+simple-parsing>=0.1.5
+pytorch-lightning>=2.4.0,<3.0.0
+
+# === Forensic logging ===
+structlog>=24.1.0
+python-json-logger>=2.0.7
+jsonlines>=4.0.0
+
+# === Visualization ===
+matplotlib>=3.9.0
+seaborn>=0.13.2
+
+# === Utilities ===
+tqdm>=4.66.0
+pyyaml>=6.0.1
+python-dotenv>=1.0.1
+ipython>=8.20.0
+jupyter>=1.0.0
+
+# === RAG ===
+langchain>=0.3.0,<0.4.0
+langchain-community>=0.3.0,<0.4.0
+langchain-huggingface>=0.1.0
+chromadb>=0.5.0,<0.6.0
+sentence-transformers>=3.0.0,<4.0.0
+
+# === Forensic preservation — timestamp signing ===
+# Provides the `ots` CLI (anchors the log on an OpenTimestamps calendar → .ots
+# sidecar) and the `opentimestamps` library (offline verification of the binding:
+# the sidecar commits to the SHA256 of the log). Versions pinned in requirements.lock.txt.
+opentimestamps-client>=0.7,<0.8

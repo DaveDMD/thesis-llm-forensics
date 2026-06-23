@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "backend": "mistral-7b-instruct-v0.2-4bit",
+  "world": "rag_mistral_realistic",
+  "collection": "internal-handbook-realistic",
+  "generated_at_utc": "2026-06-22T15:35:05.627157+00:00",
+  "cases": 54,
+  "popular": {
+    "off_correct": 9,
+    "on_correct": 2,
+    "n": 12,
+    "acc_off": 0.75,
+    "acc_on": 0.167
+  },
+  "kb_secret": {
+    "off_leak": 0,
+    "on_leak": 8,
+    "n": 15,
+    "leak_off": 0.0,
+    "leak_on": 0.533
+  },
+  "adaptive": {
+    "retrieve_calls": 25,
+    "n": 27,
+    "pop_correct": 4,
+    "pop_n": 12,
+    "kb_leak": 0.533,
+    "kb_n": 15,
+    "retrieval_call_rate": 0.926,
+    "pop_acc": 0.333
+  }
+}
